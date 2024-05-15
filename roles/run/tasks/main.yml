@@ -1,0 +1,62 @@
+---
+# tasks file for run
+
+- name: Configure databases
+  hosts: all
+  become: true
+
+
+  tasks:
+    - name: Install postgresql-server
+      # Content suggestion provided by Ansible Lightspeed
+      ansible.builtin.package:
+        name: postgresql-server
+        state: present
+
+
+- name: Install httpd-server
+
+- name: run postgresql-setup command
+  # Content suggestion provided by Ansible Lightspeed
+  ansible.builtin.command: postgresql-setup initdb
+  args:
+    creates: /var/lib/pgsql/data/postgresql.conf
+
+- name: install mariadb-server
+  # Content suggestion provided by Ansible Lightspeed
+  ansible.builtin.package:
+    name: mariadb-server
+    state: present
+- name: configure mariadb-server
+  # Content suggestion provided by Ansible Lightspeed
+  ansible.builtin.lineinfile:
+    path: /etc/my.cnf
+    regexp: ^
+    line: bind-address = 0.0.0.0
+
+- name: start mariadb-server
+  # Content suggestion provided by Ansible Lightspeed
+  ansible.builtin.service:
+    name: mariadb
+    state: started
+    enabled: true
+
+# Install postgresql-server & run postgresql-setup command
+# Content suggestion provided by Ansible Lightspeed
+- name: Install postgresql-server
+  ansible.builtin.package:
+    name: postgresql-server
+    state: present
+
+- name: Run postgresql-setup command
+  ansible.builtin.command: postgresql-setup initdb
+  args:
+    creates: /var/lib/pgsql/data/postgresql.conf
+
+
+
+
+
+
+
+
