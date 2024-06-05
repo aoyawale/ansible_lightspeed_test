@@ -3,8 +3,8 @@
 
 # See https://docs.ansible.com/ansible/latest/dev_guide/collections_galaxy_meta.html
 
-namespace: "lightspeed"
-name: "test"
+namespace: lightspeed
+name: test
 version: 1.0.0
 readme: README.md
 authors:
@@ -14,7 +14,6 @@ description: your collection description
 license_file: LICENSE
 tags: []
 dependencies: {}
-
 repository: http://example.com/repository
 documentation: http://docs.example.com
 homepage: http://example.com
